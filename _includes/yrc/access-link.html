@@ -1,0 +1,7 @@
+{%- comment -%} External link button; stays disabled until the resource has a real URL. {%- endcomment -%}
+{%- assign _url = include.resource.url | strip -%}
+{%- if _url != "" -%}
+<a class="btn btn--primary" href="{{ _url }}" target="_blank" rel="noopener noreferrer">Access resource {% include yrc/icon.html name="external" %}<span class="sr-only"> (opens in a new tab)</span></a>
+{%- else -%}
+<span class="btn btn--disabled" role="link" aria-disabled="true">{% include yrc/icon.html name="lock" %}Link to be added</span>
+{%- endif -%}

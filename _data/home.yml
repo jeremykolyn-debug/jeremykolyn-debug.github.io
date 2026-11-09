@@ -1,0 +1,37 @@
+# Home page content.
+# Leave a field as "" to show its placeholder. Multi-paragraph text uses `|`:
+#   body: |
+#     First paragraph.
+#
+#     Second paragraph.
+
+hero:
+  headline: "Understanding the Issues That Matter to Young People"
+  intro: ""         # one or two sentences introducing your topic
+
+why:
+  heading: "Why This Matters"
+  body: ""          # ~150–200 words: the issue, why it matters to young people, the site's purpose
+
+# The three theme cards are generated from the chapters in _data/explore.yml.
+
+steps:
+  - number: "01"
+    title: "Understand"
+    text: "Read the educational commentary."
+    icon: book
+  - number: "02"
+    title: "Explore"
+    text: "Examine carefully reviewed resources."
+    icon: compass
+  - number: "03"
+    title: "Reflect"
+    text: "Consider questions and activities."
+    icon: lightbulb
+
+# Ids from _data/resources.yml to preview on the home page
+featured_resources:
+  - resource-01
+  - resource-02
+  - resource-03
+featured_button: "View All Five Resources"

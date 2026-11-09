@@ -1,0 +1,24 @@
+<svg class="hero-bg" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="yrc-glow" cx="78%" cy="22%" r="62%">
+      <stop offset="0" stop-color="#3D70A3" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#18263E" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="yrc-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#DCEAFF" fill-opacity=".16"/>
+    </pattern>
+    <linearGradient id="yrc-fade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="yrc-dots-mask"><rect x="0" y="380" width="460" height="260" fill="url(#yrc-fade)"/></mask>
+  </defs>
+  <rect width="1200" height="640" fill="url(#yrc-glow)"/>
+  <rect x="0" y="380" width="460" height="260" fill="url(#yrc-dots)" mask="url(#yrc-dots-mask)"/>
+  <g fill="none" stroke="#9DBEE6" stroke-opacity=".14">
+    <circle cx="1010" cy="110" r="150"/>
+    <circle cx="1010" cy="110" r="240"/>
+    <circle cx="1010" cy="110" r="330"/>
+  </g>
+  <circle cx="1010" cy="110" r="5" fill="#9DBEE6" fill-opacity=".4"/>
+</svg>

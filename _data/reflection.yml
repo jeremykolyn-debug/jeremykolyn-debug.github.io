@@ -1,0 +1,21 @@
+# Critical Reflection page (assignment component, separate from the youth-facing pages).
+
+notice: "This section will contain the final critical reflection accompanying the completed project."
+
+sections:
+  - id: why-this-topic
+    title: "Why I Chose This Topic"
+    placeholder: "[Why I chose this topic]"
+    body: ""
+  - id: strengths
+    title: "Strengths of the Website"
+    placeholder: "[Strengths of the website]"
+    body: ""
+  - id: challenges
+    title: "Challenges and Limitations"
+    placeholder: "[Challenges and limitations]"
+    body: ""
+  - id: how-to-use
+    title: "How Young People Could Use This Website"
+    placeholder: "[How young people could use this website]"
+    body: ""

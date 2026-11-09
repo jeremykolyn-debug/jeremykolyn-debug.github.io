@@ -1,0 +1,21 @@
+# Evaluating Sources page.
+# The criteria are general source-evaluation questions; edit or extend them freely.
+
+why: ""           # ~150–200 words: why credibility evaluation matters
+methodology: ""   # ~150–200 words: how the library's resources were selected
+
+criteria:
+  - title: "Identifiable author or publisher"
+    question: "Can you tell who created this, and what their background or organization is?"
+  - title: "Supporting evidence"
+    question: "Are the claims backed by data, research, or sources you can follow up?"
+  - title: "Relevant publication date"
+    question: "Is a date shown, and is the information recent enough for the subject?"
+  - title: "Transparent purpose"
+    question: "Is it clear whether it aims to inform, persuade, entertain, or sell?"
+  - title: "Appropriate intended audience"
+    question: "Is it written for people like you, at a level you can use?"
+  - title: "Independently verifiable"
+    question: "Can you confirm the key information in other trustworthy sources?"
+
+disclaimer: "Checking every box does not prove that a source is credible, and missing one does not automatically make it unreliable. Use the checklist as a starting point for your own judgement, and compare what you find with other sources."

@@ -1,0 +1,17 @@
+---
+layout: yrc-base
+---
+<section class="page-hero{% if page.hero_style == 'plain' %} page-hero--plain{% else %} on-dark{% endif %}">
+  {%- unless page.hero_style == 'plain' %}
+  <svg class="page-hero__bg" viewBox="0 0 1200 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <g fill="none" stroke="#9DBEE6" stroke-opacity=".14"><circle cx="1080" cy="40" r="120"/><circle cx="1080" cy="40" r="200"/><circle cx="1080" cy="40" r="280"/></g>
+  </svg>
+  {%- endunless %}
+  <div class="container page-hero__inner">
+    {% include yrc/breadcrumbs.html %}
+    {%- if page.eyebrow %}<p class="page-hero__eyebrow">{{ page.eyebrow }}</p>{% endif %}
+    <h1 class="page-hero__title">{{ page.title }}</h1>
+    {%- if page.lede %}<p class="page-hero__lede">{{ page.lede }}</p>{% endif %}
+  </div>
+</section>
+{{ content }}

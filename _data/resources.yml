@@ -1,0 +1,103 @@
+# Resource Library — one entry per resource. The same entry feeds the home page
+# preview card, the library summary card, and the full critical review.
+#
+# Leave a field as "" and the site shows a marked placeholder; the review badge
+# switches from "Review pending" to "Review complete" once every field is filled.
+# To add a resource, copy a block and give it a new id and number.
+#
+#   id           anchor for links, e.g. /resources/#resource-01 (keep unique)
+#   number       display number
+#   title        resource name
+#   publisher    author or publishing organization
+#   type         e.g. Article, Video, Interactive tool, Organization
+#                (type filter buttons appear automatically once 2+ types exist)
+#   audience     who the resource is written for
+#   url          full https:// link — leave "" until confirmed; the button stays disabled
+#   teaser       one sentence for the summary cards
+#   summary      What is this resource?            (Markdown allowed)
+#   usefulness   Why might it be useful?
+#   strengths    Strengths                          (a bullet list works well)
+#   limitations  Limitations
+#   credibility  Credibility assessment
+#   perspective  My critical perspective
+#
+# Multi-paragraph example:
+#   summary: |
+#     First paragraph.
+#
+#     Second paragraph.
+
+- id: resource-01
+  number: "01"
+  title: ""
+  publisher: ""
+  type: ""
+  audience: ""
+  url: ""
+  teaser: ""
+  summary: ""
+  usefulness: ""
+  strengths: ""
+  limitations: ""
+  credibility: ""
+  perspective: ""
+
+- id: resource-02
+  number: "02"
+  title: ""
+  publisher: ""
+  type: ""
+  audience: ""
+  url: ""
+  teaser: ""
+  summary: ""
+  usefulness: ""
+  strengths: ""
+  limitations: ""
+  credibility: ""
+  perspective: ""
+
+- id: resource-03
+  number: "03"
+  title: ""
+  publisher: ""
+  type: ""
+  audience: ""
+  url: ""
+  teaser: ""
+  summary: ""
+  usefulness: ""
+  strengths: ""
+  limitations: ""
+  credibility: ""
+  perspective: ""
+
+- id: resource-04
+  number: "04"
+  title: ""
+  publisher: ""
+  type: ""
+  audience: ""
+  url: ""
+  teaser: ""
+  summary: ""
+  usefulness: ""
+  strengths: ""
+  limitations: ""
+  credibility: ""
+  perspective: ""
+
+- id: resource-05
+  number: "05"
+  title: ""
+  publisher: ""
+  type: ""
+  audience: ""
+  url: ""
+  teaser: ""
+  summary: ""
+  usefulness: ""
+  strengths: ""
+  limitations: ""
+  credibility: ""
+  perspective: ""

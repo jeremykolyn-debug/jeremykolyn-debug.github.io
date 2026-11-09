@@ -1,0 +1,6 @@
+{%- comment -%}
+  Inline value with a placeholder fallback (titles, labels, short metadata).
+  Usage: {% include yrc/text.html value=page.x placeholder="[Resource title]" %}
+{%- endcomment -%}
+{%- assign _tv = include.value | strip -%}
+{%- if _tv != "" -%}{{ _tv }}{%- else -%}<span class="ph-inline">{{ include.placeholder }}</span>{%- endif -%}

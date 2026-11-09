@@ -1,0 +1,13 @@
+{%- assign r = include.resource -%}
+<article class="card card--link rcard reveal" data-type="{{ r.type | strip | slugify }}">
+  <div class="rcard__top">
+    <span class="badge badge--navy">Resource {{ r.number }}</span>
+    {% include yrc/review-status.html resource=r %}
+  </div>
+  <h3 class="card__title">
+    <a class="card__link" href="{{ '/resources/' | relative_url }}#{{ r.id }}"><span class="sr-only">Resource {{ r.number }}: </span>{% include yrc/text.html value=r.title placeholder="[Resource title]" %}</a>
+  </h3>
+  <p class="rcard__meta">{% include yrc/icon.html name="file" %}<span>{% include yrc/text.html value=r.type placeholder="[Resource category]" %}</span></p>
+  <p class="card__text">{% include yrc/text.html value=r.teaser placeholder="[Short description of the resource]" %}</p>
+  <span class="card__more" aria-hidden="true">Read the review {% include yrc/icon.html name="arrow-right" %}</span>
+</article>

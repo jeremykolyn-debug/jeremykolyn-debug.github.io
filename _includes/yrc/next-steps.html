@@ -1,0 +1,25 @@
+{%- comment -%}
+  "Where next" cards at the end of a page.
+  Usage: {% include yrc/next-steps.html items="explore,think" %}
+{%- endcomment -%}
+{%- assign _keys = include.items | split: "," -%}
+<div class="next-grid">
+  {%- for k in _keys %}
+  {%- case k -%}
+  {%- when "explore" -%}{%- assign _t = "Explore the Topic" -%}{%- assign _u = "/explore/" -%}{%- assign _i = "compass" -%}{%- assign _d = "Read the commentary on the issue, section by section." -%}
+  {%- when "resources" -%}{%- assign _t = "Resource Library" -%}{%- assign _u = "/resources/" -%}{%- assign _i = "book" -%}{%- assign _d = "See the selected resources and their critical reviews." -%}
+  {%- when "think" -%}{%- assign _t = "Think Critically" -%}{%- assign _u = "/think-critically/" -%}{%- assign _i = "lightbulb" -%}{%- assign _d = "Apply what you've read in short activities." -%}
+  {%- when "evaluate" -%}{%- assign _t = "Evaluating Sources" -%}{%- assign _u = "/evaluating-sources/" -%}{%- assign _i = "shield" -%}{%- assign _d = "Check whether a source is trustworthy." -%}
+  {%- when "about" -%}{%- assign _t = "About the Project" -%}{%- assign _u = "/about/" -%}{%- assign _i = "info" -%}{%- assign _d = "Why this resource centre exists and how it was made." -%}
+  {%- when "reflection" -%}{%- assign _t = "Critical Reflection" -%}{%- assign _u = "/critical-reflection/" -%}{%- assign _i = "pencil" -%}{%- assign _d = "The author's reflection on the project." -%}
+  {%- endcase %}
+  <article class="next-card card card--link">
+    <span class="next-card__icon">{% include yrc/icon.html name=_i %}</span>
+    <div>
+      <h3 class="next-card__title"><a class="card__link" href="{{ _u | relative_url }}">{{ _t }}</a></h3>
+      <p class="next-card__text">{{ _d }}</p>
+    </div>
+    <span class="next-card__arrow">{% include yrc/icon.html name="arrow-right" %}</span>
+  </article>
+  {%- endfor %}
+</div>

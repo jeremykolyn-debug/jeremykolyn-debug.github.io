@@ -1,0 +1,10 @@
+{%- comment -%}
+  Block of Markdown content with a placeholder fallback.
+  Usage: {% include yrc/field.html value=x placeholder="[…]" label="Original commentary" words="150–250" lines=5 variant="dark|compact" %}
+{%- endcomment -%}
+{%- assign _fv = include.value | strip -%}
+{%- if _fv != "" -%}
+<div class="prose">{{ _fv | markdownify }}</div>
+{%- else -%}
+{%- include yrc/placeholder.html text=include.placeholder label=include.label words=include.words lines=include.lines variant=include.variant -%}
+{%- endif -%}

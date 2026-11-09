@@ -1,0 +1,79 @@
+{%- comment -%}
+  Reusable activity. Interactive once it has a question and options (see _data/activities.yml);
+  otherwise it renders an inactive "Content Coming Soon" preview of its structure.
+{%- endcomment -%}
+{%- assign a = include.activity -%}
+{%- assign _q = a.question | strip -%}
+{%- assign _active = false -%}
+{%- if _q != "" and a.options.size > 0 -%}{%- assign _active = true -%}{%- endif -%}
+{%- assign _rr = nil -%}
+{%- assign _rel = a.related_resource | strip -%}
+{%- if _rel != "" -%}{%- assign _rr = site.data.resources | where: "id", _rel | first -%}{%- endif -%}
+
+<article class="activity{% unless _active %} activity--inactive{% endunless %} reveal" id="{{ a.id }}" aria-labelledby="{{ a.id }}-title"{% if _active %} data-activity{% endif %}>
+  <header class="activity__head">
+    <div>
+      <p class="activity__num">Activity {{ a.number }}</p>
+      <h2 id="{{ a.id }}-title" class="activity__title">{% include yrc/text.html value=a.title placeholder="[Activity Title]" %}</h2>
+    </div>
+    {%- unless _active %}
+    <span class="badge badge--pending">{% include yrc/icon.html name="clock" %}Content Coming Soon</span>
+    {%- endunless %}
+  </header>
+
+  {%- if _active %}
+  <div class="activity__body">
+    {%- assign _intro = a.introduction | strip -%}
+    {%- if _intro != "" %}<div class="prose activity__intro">{{ _intro | markdownify }}</div>{% endif %}
+    {%- assign _sc = a.scenario | strip -%}
+    {%- if _sc != "" %}
+    <div class="callout callout--example">
+      <span class="callout__icon">{% include yrc/icon.html name="message" %}</span>
+      <div><p class="callout__label">Scenario</p><div class="prose">{{ _sc | markdownify }}</div></div>
+    </div>
+    {%- endif %}
+    <fieldset class="options">
+      <legend class="options__legend">{{ _q }}</legend>
+      {%- for o in a.options %}
+      <label class="option">
+        <input type="radio" name="{{ a.id }}-response" value="{{ forloop.index0 }}">
+        <span class="option__mark" aria-hidden="true"></span>
+        <span class="option__text">{{ o.text }}</span>
+      </label>
+      {%- endfor %}
+    </fieldset>
+    <div class="feedback-region" aria-live="polite">
+      <p class="feedback-empty" data-feedback-empty>Choose a response to see feedback.</p>
+      {%- for o in a.options %}
+      <div class="feedback" data-feedback="{{ forloop.index0 }}" hidden>
+        <p class="callout__label">Feedback</p>
+        <div class="prose">{{ o.feedback | markdownify }}</div>
+      </div>
+      {%- endfor %}
+    </div>
+    {%- if _rr %}
+    <p class="activity__related">{% include yrc/icon.html name="link" %}<span>Related resource: <a href="{{ '/resources/' | relative_url }}#{{ _rr.id }}">Resource {{ _rr.number }}: {% include yrc/text.html value=_rr.title placeholder="[Resource title]" %}</a></span></p>
+    {%- endif %}
+  </div>
+  {%- else %}
+  <div class="activity__body activity__preview">
+    <p class="activity__note">{% include yrc/icon.html name="info" %}<span>This activity is being developed. Its scenario, response options, and feedback will appear here.</span></p>
+    <ol class="preview-steps">
+      <li><span class="preview-steps__label">Introduction</span><span class="preview-steps__ph">{% include yrc/text.html value=a.introduction placeholder="[Activity introduction]" %}</span></li>
+      <li><span class="preview-steps__label">Scenario or prompt</span><span class="preview-steps__ph">[Scenario or prompt]</span></li>
+      <li>
+        <span class="preview-steps__label">Possible responses</span>
+        <span class="preview-options" aria-hidden="true">
+          <span class="preview-option"><span class="option__mark"></span>[Response option]</span>
+          <span class="preview-option"><span class="option__mark"></span>[Response option]</span>
+          <span class="preview-option"><span class="option__mark"></span>[Response option]</span>
+        </span>
+        <span class="sr-only">Response options will be added.</span>
+      </li>
+      <li><span class="preview-steps__label">Feedback</span><span class="preview-steps__ph">[Feedback and explanation]</span></li>
+      <li><span class="preview-steps__label">Related resource</span><span class="preview-steps__ph">[Related resource link]</span></li>
+    </ol>
+  </div>
+  {%- endif %}
+</article>
+{%- assign _rr = nil -%}

@@ -1,0 +1,52 @@
+---
+layout: yrc-page
+title: "About the Project"
+permalink: /about/
+nav: about
+eyebrow: "About"
+lede: "Why this resource centre exists, who it is for, how its resources were chosen, and where its limits lie."
+---
+{%- assign ab = site.data.about -%}
+{%- assign project = site.data.site.project -%}
+<div class="container article-layout">
+  <aside>
+    <nav class="toc" aria-labelledby="about-toc-title">
+      <p class="toc__title" id="about-toc-title">On this page</p>
+      <ol>
+        {%- for s in ab.sections %}
+        <li><a href="#{{ s.id }}">{{ s.title }}</a></li>
+        {%- endfor %}
+      </ol>
+    </nav>
+  </aside>
+
+  <div class="article">
+    {%- for s in ab.sections %}
+    <section id="{{ s.id }}" class="about-section reveal" aria-labelledby="{{ s.id }}-title">
+      <span class="about-section__icon">{% include yrc/icon.html name=s.icon %}</span>
+      <div>
+        <h2 id="{{ s.id }}-title">{{ s.title }}</h2>
+        {%- if s.id == "credits" %}
+        <dl class="credits">
+          <div><dt>Created by</dt><dd>{% include yrc/text.html value=project.author placeholder="[Author name]" %}</dd></div>
+          <div><dt>Course</dt><dd>{% include yrc/text.html value=project.course placeholder="[Course name and code]" %}</dd></div>
+          <div><dt>Built with</dt><dd>Jekyll, GitHub Pages, and the Inter typeface</dd></div>
+        </dl>
+        {%- endif %}
+        {% include yrc/field.html value=s.body placeholder=s.placeholder label=s.title words="80–150" lines=3 %}
+        {%- if s.id == "selection" %}
+        <p class="review__aside"><a href="{{ '/evaluating-sources/' | relative_url }}#methodology">Read the full selection methodology</a></p>
+        {%- endif %}
+      </div>
+    </section>
+    {%- endfor %}
+
+    <div class="cta-band on-dark reveal">
+      <div class="cta-band__text">
+        <h2>Critical reflection</h2>
+        <p>The author's reflection on the topic choice, the site's strengths and challenges, and how young people could use it.</p>
+      </div>
+      <a class="btn btn--light" href="{{ '/critical-reflection/' | relative_url }}">Read the reflection {% include yrc/icon.html name="arrow-right" %}</a>
+    </div>
+  </div>
+</div>

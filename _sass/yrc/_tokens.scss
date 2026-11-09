@@ -1,0 +1,62 @@
+/* Design tokens — change the brand colours, type and spacing here. */
+
+:root {
+  /* Colour */
+  --navy: #18263E;
+  --navy-700: #1F3150;
+  --navy-600: #2A4166;
+  --blue: #3D70A3;
+  --blue-700: #2F5A86;
+  --blue-400: #6D9BD0;
+  --blue-300: #9DBEE6;
+  --blue-pale: #DCEAFF;
+  --blue-50: #EEF4FD;
+  --bg: #F5F7FA;
+  --surface: #FFFFFF;
+  --text: #252F3D;
+  --text-muted: #556172;
+  --on-dark: #E8EEF8;
+  --on-dark-muted: #B4C3DA;
+  --border: #DFE5EE;
+  --border-strong: #C6D0DE;
+  --ph-border: #A9C1E0;
+  --ph-line: #D3E0F1;
+  --pending-bg: #FFF3D6;
+  --pending-text: #6E4C00;
+  --done-bg: #E1F3EA;
+  --done-text: #1D5E43;
+  --warn-bg: #FFF8EA;
+  --warn-border: #EBCB8B;
+  --plus: #2E7D5B;
+  --minus: #A65B1E;
+  --focus: #3D70A3;
+  --focus-on-dark: #9DBEE6;
+
+  /* Type */
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fs-hero: clamp(2rem, 1.3rem + 2.8vw, 3.25rem);   /* 32–52px */
+  --fs-h1: clamp(2rem, 1.55rem + 1.8vw, 2.75rem);    /* 32–44px */
+  --fs-h2: clamp(1.75rem, 1.5rem + 0.9vw, 2.125rem); /* 28–34px */
+  --fs-h3: clamp(1.25rem, 1.15rem + 0.4vw, 1.5rem);  /* 20–24px */
+  --fs-body: 1.0625rem;                              /* 17px */
+  --fs-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --fs-small: 0.875rem;                              /* 14px */
+  --fs-label: 0.8125rem;                             /* 13px */
+
+  /* Shape and depth */
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 18px;
+  --shadow-sm: 0 1px 2px rgba(24, 38, 62, 0.05), 0 1px 3px rgba(24, 38, 62, 0.06);
+  --shadow: 0 6px 18px rgba(24, 38, 62, 0.08);
+  --shadow-lg: 0 16px 40px rgba(24, 38, 62, 0.14);
+
+  /* Layout */
+  --container: 1160px;
+  --container-mid: 980px;
+  --reading: 720px;
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --section-y: clamp(3.5rem, 7vw, 6rem);
+  --header-h: 68px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}

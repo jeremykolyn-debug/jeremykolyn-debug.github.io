@@ -1,0 +1,33 @@
+# About the Project page. Each section shows a placeholder until `body` is filled.
+
+sections:
+  - id: purpose
+    title: "Purpose of the Website"
+    icon: target
+    placeholder: "[Purpose of the website: what it sets out to do]"
+    body: ""
+  - id: audience
+    title: "Intended Audience"
+    icon: users
+    placeholder: "[Intended audience: who this resource is for]"
+    body: ""
+  - id: why-this-topic
+    title: "Why This Topic?"
+    icon: help
+    placeholder: "[Why this topic was chosen]"
+    body: ""
+  - id: selection
+    title: "How Resources Were Selected"
+    icon: shield
+    placeholder: "[How the resources were found and selected]"
+    body: ""
+  - id: limitations
+    title: "Limitations of the Website"
+    icon: alert
+    placeholder: "[Limitations of the website]"
+    body: ""
+  - id: credits
+    title: "Project Credits"
+    icon: flag
+    placeholder: "[Project credits and acknowledgements]"
+    body: ""

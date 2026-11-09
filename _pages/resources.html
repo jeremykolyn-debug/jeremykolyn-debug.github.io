@@ -1,0 +1,86 @@
+---
+layout: yrc-page
+title: "Resource Library"
+permalink: /resources/
+nav: resources
+eyebrow: "Resource Library"
+lede: "Carefully selected resources to help young people explore, question, and understand important issues."
+progress: true
+---
+{%- assign resources = site.data.resources -%}
+{%- capture _types -%}{%- for r in resources -%}{%- assign _t = r.type | strip -%}{%- if _t != "" -%}{{ _t }}|{%- endif -%}{%- endfor -%}{%- endcapture -%}
+{%- assign types = _types | split: "|" | uniq -%}
+
+<!-- Selection process -->
+<section class="section section--tight">
+  <div class="container intro-split">
+    <div>
+      <p class="eyebrow">About this library</p>
+      <h2 class="section-title">How these resources were chosen</h2>
+    </div>
+    <div>
+      {% include yrc/field.html value=site.data.library.intro placeholder="[Original introduction explaining how the resources were found, selected, and evaluated]" label="Selection process" words="100–150" lines=4 %}
+      <p class="intro-split__link"><a class="link-arrow" href="{{ '/evaluating-sources/' | relative_url }}#methodology">See the evaluation criteria and methodology {% include yrc/icon.html name="arrow-right" %}</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- Overview -->
+<section class="section section--white" id="overview" aria-labelledby="overview-title">
+  <div class="container">
+    <div class="section-head-row">
+      <div>
+        <p class="eyebrow">At a glance</p>
+        <h2 id="overview-title" class="section-title">{{ resources.size }} resources selected for critical review</h2>
+      </div>
+    </div>
+    <p class="legend-intro">Every review covers:</p>
+    <ul class="review-legend">
+      <li>What the resource is</li>
+      <li>Why it might be useful</li>
+      <li>Strengths</li>
+      <li>Limitations</li>
+      <li>Credibility</li>
+      <li>A critical perspective</li>
+    </ul>
+
+    {%- if types.size > 1 %}
+    <div class="filter" data-filter role="group" aria-label="Filter resources by type">
+      <span class="filter__label">Filter by type:</span>
+      <button type="button" data-filter-value="all" aria-pressed="true">All</button>
+      {%- for t in types %}
+      <button type="button" data-filter-value="{{ t | slugify }}" aria-pressed="false">{{ t }}</button>
+      {%- endfor %}
+    </div>
+    <p class="filter-status" data-filter-status aria-live="polite"></p>
+    {%- endif %}
+
+    <div class="grid grid--resources">
+      {%- for r in resources %}
+      {% include yrc/resource-card.html resource=r %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Full reviews -->
+<section class="section" aria-labelledby="reviews-title">
+  <div class="container container--mid">
+    <div class="section-head">
+      <p class="eyebrow">Detailed reviews</p>
+      <h2 id="reviews-title" class="section-title">Critical reviews</h2>
+      <p class="section-lede">Each resource is summarized, weighed up, and checked for credibility.</p>
+    </div>
+    <div class="reviews">
+      {%- for r in resources %}
+      {% include yrc/resource-review.html resource=r %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight section--white">
+  <div class="container container--mid">
+    {% include yrc/next-steps.html items="think,evaluate" %}
+  </div>
+</section>

@@ -17,11 +17,11 @@ minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "n
 # Site Settings
 locale                   : "en-US"
 direction                : # "ltr" (default), "rtl" # set the direction of the page
-title                    : "Academic Resource Hub"
+title                    : "Youth Resource Centre" # temporary brand name — shown in the header, footer and browser tab
 title_separator          : "-"
-subtitle                 : "Notes, study guides, and readings"
+subtitle                 : "Explore. Question. Understand." # temporary tagline
 name                     : "Your Name"
-description              : "A free, organized academic resource: unit notes, study guides, a glossary, and curated readings."
+description              : "A resource centre that helps young people explore, question, and understand an important issue, and judge which online information to trust."
 url                      : "https://jeremykolyn-debug.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "jeremykolyn-debug/jeremykolyn-debug.github.io"
@@ -318,16 +318,6 @@ compress_html:
     envs: development
 
 
-# Collections
-collections:
-  units:
-    output: true
-    permalink: /:collection/:path/
-  guides:
-    output: true
-    permalink: /:collection/:path/
-
-
 # Defaults
 defaults:
   # _posts (site updates / announcements)
@@ -348,31 +338,4 @@ defaults:
     values:
       layout: single
       author_profile: false
-  # _units (course notes)
-  - scope:
-      path: ""
-      type: units
-    values:
-      layout: single
-      author_profile: false
-      read_time: true
-      toc: true
-      toc_sticky: true
-      share: false
-      math: true
-      sidebar:
-        nav: "units"
-  # _guides (study skills / how-to)
-  - scope:
-      path: ""
-      type: guides
-    values:
-      layout: single
-      author_profile: false
-      read_time: true
-      toc: true
-      toc_sticky: true
-      share: false
-      sidebar:
-        nav: "guides"
 

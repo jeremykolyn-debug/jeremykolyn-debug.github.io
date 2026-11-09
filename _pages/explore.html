@@ -1,0 +1,91 @@
+---
+layout: yrc-page
+title: "Explore the Topic"
+permalink: /explore/
+nav: explore
+eyebrow: "Topic guide"
+lede: "Original commentary on the issue, organized into three sections, with examples, reflection questions, and links to related resources."
+progress: true
+---
+{%- assign ex = site.data.explore -%}
+<div class="container article-layout">
+  <aside>
+    <nav class="toc" aria-labelledby="toc-title">
+      <p class="toc__title" id="toc-title">On this page</p>
+      <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        {%- for ch in ex.chapters %}
+        <li><a href="#{{ ch.id }}"><span class="toc__num">{{ ch.number }}</span><span>{% include yrc/text.html value=ch.title placeholder="[Topic Subheading]" %}</span></a></li>
+        {%- endfor %}
+        <li><a href="#keep-exploring">Keep exploring</a></li>
+      </ol>
+    </nav>
+  </aside>
+
+  <article class="article">
+    <section id="introduction" class="chapter" aria-labelledby="introduction-title">
+      <header class="chapter__head">
+        <p class="eyebrow">Start here</p>
+        <h2 id="introduction-title">Introduction</h2>
+      </header>
+      {% include yrc/field.html value=ex.intro placeholder="[Introductory paragraph: what this topic guide covers and how it is organized]" label="Introduction" words="100–150" lines=4 %}
+    </section>
+
+    {%- for ch in ex.chapters %}
+    <section id="{{ ch.id }}" class="chapter" aria-labelledby="{{ ch.id }}-title">
+      <header class="chapter__head">
+        <p class="eyebrow">Section {{ ch.number }}</p>
+        <h2 id="{{ ch.id }}-title">{% include yrc/text.html value=ch.title placeholder="[Topic Subheading]" %}</h2>
+      </header>
+
+      {% include yrc/field.html value=ch.commentary placeholder="[Original commentary will be added here]" label="Original commentary" words="150–250" lines=7 %}
+
+      {% include yrc/figure.html chapter=ch %}
+
+      <aside class="callout callout--example" aria-labelledby="{{ ch.id }}-example">
+        <span class="callout__icon">{% include yrc/icon.html name="globe" %}</span>
+        <div>
+          <p class="callout__label" id="{{ ch.id }}-example">Real-world example</p>
+          <h3 class="callout__title">{% include yrc/text.html value=ch.example_title placeholder="[Example title]" %}</h3>
+          {% include yrc/field.html value=ch.example placeholder="[A real-world example that illustrates this section]" label="Example" lines=2 variant="compact" %}
+        </div>
+      </aside>
+
+      <aside class="callout callout--reflect" aria-labelledby="{{ ch.id }}-reflect">
+        <span class="callout__icon">{% include yrc/icon.html name="help" %}</span>
+        <div>
+          <p class="callout__label" id="{{ ch.id }}-reflect">Pause and reflect</p>
+          {% include yrc/field.html value=ch.reflection_question placeholder="[Reflection question]" label="Reflection question" lines=0 variant="compact" %}
+        </div>
+      </aside>
+
+      <div class="related">
+        <h3 class="related__title">Related resources</h3>
+        {%- if ch.related_resources and ch.related_resources.size > 0 %}
+        <ul class="related__list">
+          {%- for rid in ch.related_resources %}
+          {%- assign rr = site.data.resources | where: "id", rid | first %}
+          {%- if rr %}
+          <li class="card card--link related__item">
+            {% include yrc/icon.html name="book" %}
+            <a class="card__link" href="{{ '/resources/' | relative_url }}#{{ rr.id }}">Resource {{ rr.number }}: {% include yrc/text.html value=rr.title placeholder="[Resource title]" %}</a>
+          </li>
+          {%- endif %}
+          {%- endfor %}
+        </ul>
+        {%- else %}
+        {% include yrc/placeholder.html text="[Links to related resources from the Resource Library]" label="Related resources" lines=0 variant="compact" %}
+        {%- endif %}
+      </div>
+    </section>
+    {%- endfor %}
+
+    <section id="keep-exploring" class="chapter" aria-labelledby="keep-title">
+      <header class="chapter__head">
+        <p class="eyebrow">Next</p>
+        <h2 id="keep-title">Keep exploring</h2>
+      </header>
+      {% include yrc/next-steps.html items="resources,think" %}
+    </section>
+  </article>
+</div>

@@ -1,0 +1,49 @@
+{%- assign project = site.data.site.project -%}
+<footer class="site-footer on-dark">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand brand--light" href="{{ '/' | relative_url }}">
+          {% include yrc/logo.html %}
+          <span class="brand__text">
+            <span class="brand__name">{{ site.title }}</span>
+            <span class="brand__tag">{{ site.subtitle }}</span>
+          </span>
+        </a>
+        <p class="footer-brand__note">{{ project.designation }}</p>
+      </div>
+
+      <nav class="footer-col" aria-labelledby="footer-explore">
+        <h2 id="footer-explore" class="footer-col__title">Explore</h2>
+        <ul>
+          {%- for item in site.data.site.nav.primary %}
+          <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+          {%- endfor %}
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-labelledby="footer-more">
+        <h2 id="footer-more" class="footer-col__title">Learn more</h2>
+        <ul>
+          {%- for item in site.data.site.nav.secondary %}
+          <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+          {%- endfor %}
+        </ul>
+      </nav>
+
+      <div class="footer-col">
+        <h2 class="footer-col__title">Project</h2>
+        <ul>
+          <li>Created by {% include yrc/text.html value=project.author placeholder="[Author name]" %}</li>
+          <li>{% include yrc/text.html value=project.course placeholder="[Course name and code]" %}</li>
+          <li><a href="{{ '/critical-reflection/' | relative_url }}">Read the critical reflection</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {{ site.time | date: "%Y" }} {% include yrc/text.html value=project.author placeholder="[Author name]" %}. {% include yrc/text.html value=project.licence placeholder="[Content licence to be added]" %}</p>
+      <p>Built with Jekyll and GitHub Pages.</p>
+    </div>
+  </div>
+</footer>

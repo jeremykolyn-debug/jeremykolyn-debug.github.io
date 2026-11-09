@@ -1,0 +1,48 @@
+# Explore the Topic page — your original commentary.
+# Each chapter also powers one "Theme" card on the home page.
+# Leave a field as "" to show its placeholder. Use `|` for multiple paragraphs.
+
+intro: ""                   # ~100–150 words introducing the topic guide
+
+chapters:
+  - id: section-01          # anchor: /explore/#section-01 (keep unique)
+    number: "01"
+    icon: compass           # see _includes/yrc/icon.html for names
+    title: ""               # section subheading
+    summary: ""             # one sentence, used on the home page theme card
+    commentary: ""          # ~150–250 words of original discussion
+    image: ""               # optional, e.g. /assets/images/section-01.jpg
+    image_alt: ""
+    image_caption: ""
+    example_title: ""
+    example: ""             # a real-world example
+    reflection_question: ""
+    related_resources: []   # resource ids, e.g. [resource-01, resource-04]
+
+  - id: section-02
+    number: "02"
+    icon: layers
+    title: ""
+    summary: ""
+    commentary: ""
+    image: ""
+    image_alt: ""
+    image_caption: ""
+    example_title: ""
+    example: ""
+    reflection_question: ""
+    related_resources: []
+
+  - id: section-03
+    number: "03"
+    icon: target
+    title: ""
+    summary: ""
+    commentary: ""
+    image: ""
+    image_alt: ""
+    image_caption: ""
+    example_title: ""
+    example: ""
+    reflection_question: ""
+    related_resources: []

@@ -1,0 +1,80 @@
+---
+layout: yrc-page
+title: "How Do We Know a Resource Is Trustworthy?"
+short_title: "Evaluating Sources"
+permalink: /evaluating-sources/
+nav: resources
+parent:
+  title: "Resources"
+  url: /resources/
+eyebrow: "Evaluating Sources"
+lede: "A practical checklist for judging whether online information is reliable, plus the method used to choose this site's resources."
+description: "A six-point checklist for judging whether an online source is reliable."
+---
+{%- assign ev = site.data.evaluating -%}
+<section class="section section--tight">
+  <div class="container container--reading">
+    <p class="eyebrow">Why it matters</p>
+    <h2 class="section-title">Why credibility matters</h2>
+    {% include yrc/field.html value=ev.why placeholder="[Original discussion: why evaluating credibility matters for young people online]" label="Original discussion" words="150–200" lines=5 %}
+  </div>
+</section>
+
+<section class="section section--white" aria-labelledby="checklist-title">
+  <div class="container checklist-layout">
+    <div class="checklist-intro">
+      <p class="eyebrow">Interactive checklist</p>
+      <h2 id="checklist-title" class="section-title">Check a source against six criteria</h2>
+      <p class="section-lede">Open a source you've found, then tick each criterion it meets. Nothing you tick is saved or sent anywhere.</p>
+    </div>
+
+    <div class="checklist-card" data-checklist>
+      <div class="checklist-meter">
+        <p class="checklist-status" role="status"><strong data-check-count>0</strong> of {{ ev.criteria.size }} criteria checked</p>
+        <div class="meter" aria-hidden="true"><span data-check-bar></span></div>
+      </div>
+      <ul class="checklist">
+        {%- for c in ev.criteria %}
+        <li class="check-item">
+          <label for="criterion-{{ forloop.index }}">
+            <input type="checkbox" id="criterion-{{ forloop.index }}">
+            <span class="check-item__text"><strong>{{ c.title }}</strong><span>{{ c.question }}</span></span>
+          </label>
+        </li>
+        {%- endfor %}
+      </ul>
+      <div class="checklist-actions">
+        <p class="checklist-done" data-check-done hidden>All criteria checked. Now weigh up the source as a whole.</p>
+        <button type="button" class="btn btn--secondary btn--sm" data-check-reset>{% include yrc/icon.html name="reset" %}Clear checklist</button>
+      </div>
+    </div>
+
+    <aside class="callout callout--warning" aria-labelledby="disclaimer-title">
+      <span class="callout__icon">{% include yrc/icon.html name="alert" %}</span>
+      <div>
+        <p class="callout__label" id="disclaimer-title">Keep in mind</p>
+        <p>{{ ev.disclaimer }}</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="methodology" class="section" aria-labelledby="methodology-title">
+  <div class="container container--reading">
+    <p class="eyebrow">Our process</p>
+    <h2 id="methodology-title" class="section-title">How this site's resources were selected</h2>
+    {% include yrc/field.html value=ev.methodology placeholder="[Methodology used to select and evaluate the resources in the library]" label="Selection methodology" words="150–200" lines=5 %}
+    <p class="legend-intro legend-intro--spaced">See the credibility assessment for each resource:</p>
+    <ul class="applied-list">
+      {%- for r in site.data.resources %}
+      <li><a href="{{ '/resources/' | relative_url }}#{{ r.id }}-cred">Resource {{ r.number }}</a></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section section--tight section--white">
+  <div class="container container--mid">
+    {% include yrc/next-steps.html items="resources,think" %}
+  </div>
+</section>

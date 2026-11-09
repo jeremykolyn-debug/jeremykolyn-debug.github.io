@@ -1,0 +1,16 @@
+{%- assign _img = include.chapter.image | strip -%}
+{%- if _img != "" -%}
+<figure class="figure">
+  <img src="{{ _img | relative_url }}" alt="{{ include.chapter.image_alt | escape }}" loading="lazy">
+  {%- assign _cap = include.chapter.image_caption | strip -%}
+  {%- if _cap != "" %}<figcaption>{{ _cap | markdownify | remove: "<p>" | remove: "</p>" }}</figcaption>{% endif %}
+</figure>
+{%- else -%}
+<figure class="figure figure--empty" role="note">
+  <div class="figure__frame">
+    {% include yrc/icon.html name="image" %}
+    <p class="figure__label">Optional illustrative image</p>
+    <p class="figure__hint">[Image and caption to be added if needed]</p>
+  </div>
+</figure>
+{%- endif -%}

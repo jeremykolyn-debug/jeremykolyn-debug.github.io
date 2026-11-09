@@ -1,0 +1,52 @@
+# Think Critically activities.
+#
+# An activity stays in its "Content Coming Soon" preview until it has a
+# `question` and at least one option. Then it becomes interactive: visitors pick
+# a response and see that option's feedback.
+#
+#   intro / scenario / feedback accept Markdown. `related_resource` is a resource id.
+#
+# Example of a finished activity:
+#   - id: activity-01
+#     number: "01"
+#     title: "Activity title"
+#     introduction: "What this activity asks you to think about."
+#     scenario: |
+#       Describe the situation here.
+#     question: "What would you do?"
+#     options:
+#       - text: "First possible response"
+#         feedback: "Why this response might or might not work."
+#       - text: "Second possible response"
+#         feedback: "…"
+#     related_resource: resource-02
+
+intro: ""   # ~80–120 words introducing the activities
+
+activities:
+  - id: activity-01
+    number: "01"
+    title: ""
+    introduction: ""
+    scenario: ""
+    question: ""
+    options: []
+    related_resource: ""
+
+  - id: activity-02
+    number: "02"
+    title: ""
+    introduction: ""
+    scenario: ""
+    question: ""
+    options: []
+    related_resource: ""
+
+  - id: activity-03
+    number: "03"
+    title: ""
+    introduction: ""
+    scenario: ""
+    question: ""
+    options: []
+    related_resource: ""

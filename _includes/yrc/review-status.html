@@ -1,0 +1,13 @@
+{%- comment -%} "Review complete" only once every review field of the resource is filled in. {%- endcomment -%}
+{%- assign _rs = include.resource -%}
+{%- assign _done = true -%}
+{%- assign _rfields = "title,publisher,type,audience,summary,usefulness,strengths,limitations,credibility,perspective" | split: "," -%}
+{%- for _f in _rfields -%}
+  {%- assign _x = _rs[_f] | strip -%}
+  {%- if _x == "" -%}{%- assign _done = false -%}{%- endif -%}
+{%- endfor -%}
+{%- if _done -%}
+<span class="badge badge--done">{% include yrc/icon.html name="check" %}Review complete</span>
+{%- else -%}
+<span class="badge badge--pending">{% include yrc/icon.html name="clock" %}Review pending</span>
+{%- endif -%}

@@ -1,0 +1,56 @@
+{%- assign r = include.resource -%}
+<article class="review reveal" id="{{ r.id }}" data-type="{{ r.type | strip | slugify }}" aria-labelledby="{{ r.id }}-title">
+  <header class="review__head">
+    <div class="review__num" aria-hidden="true"><span>Resource</span>{{ r.number }}</div>
+    <div class="review__heading">
+      <div class="review__badges">{% include yrc/review-status.html resource=r %}</div>
+      <h3 id="{{ r.id }}-title" class="review__title"><span class="sr-only">Resource {{ r.number }}: </span>{% include yrc/text.html value=r.title placeholder="[Resource title]" %}</h3>
+      <dl class="review__meta">
+        <div><dt>Publisher or author</dt><dd>{% include yrc/text.html value=r.publisher placeholder="[Resource publisher]" %}</dd></div>
+        <div><dt>Type of resource</dt><dd>{% include yrc/text.html value=r.type placeholder="[Article, video, interactive tool, organization…]" %}</dd></div>
+        <div><dt>Intended audience</dt><dd>{% include yrc/text.html value=r.audience placeholder="[Intended audience]" %}</dd></div>
+      </dl>
+    </div>
+    <div class="review__access">{% include yrc/access-link.html resource=r %}</div>
+  </header>
+
+  <div class="review__body">
+    <div class="review__pair">
+      <section class="review__block" aria-labelledby="{{ r.id }}-what">
+        <h4 id="{{ r.id }}-what" class="review__label"><span class="review__chip">{% include yrc/icon.html name="info" %}</span>What is this resource?</h4>
+        {% include yrc/field.html value=r.summary placeholder="[Resource critical summary: what the resource involves]" label="Summary" words="80–120" lines=3 variant="compact" %}
+      </section>
+      <section class="review__block" aria-labelledby="{{ r.id }}-why">
+        <h4 id="{{ r.id }}-why" class="review__label"><span class="review__chip">{% include yrc/icon.html name="lightbulb" %}</span>Why might it be useful?</h4>
+        {% include yrc/field.html value=r.usefulness placeholder="[Why this resource might be useful to young people]" label="Educational value" words="60–100" lines=3 variant="compact" %}
+      </section>
+    </div>
+
+    <div class="review__pair">
+      <section class="review__block" aria-labelledby="{{ r.id }}-strengths">
+        <h4 id="{{ r.id }}-strengths" class="review__label"><span class="review__chip review__chip--plus">{% include yrc/icon.html name="plus" %}</span>Strengths</h4>
+        {% include yrc/field.html value=r.strengths placeholder="[Strengths of this resource]" label="Strengths" lines=2 variant="compact" %}
+      </section>
+      <section class="review__block" aria-labelledby="{{ r.id }}-limits">
+        <h4 id="{{ r.id }}-limits" class="review__label"><span class="review__chip review__chip--minus">{% include yrc/icon.html name="minus" %}</span>Limitations</h4>
+        {% include yrc/field.html value=r.limitations placeholder="[Limitations of this resource]" label="Limitations" lines=2 variant="compact" %}
+      </section>
+    </div>
+
+    <section class="review__block" aria-labelledby="{{ r.id }}-cred">
+      <h4 id="{{ r.id }}-cred" class="review__label"><span class="review__chip">{% include yrc/icon.html name="shield" %}</span>Credibility assessment</h4>
+      {% include yrc/field.html value=r.credibility placeholder="[How the trustworthiness of this resource was evaluated]" label="Credibility" words="60–100" lines=2 variant="compact" %}
+      <p class="review__aside"><a href="{{ '/evaluating-sources/' | relative_url }}">See the six criteria used to evaluate sources</a></p>
+    </section>
+
+    <section class="review__perspective on-dark" aria-labelledby="{{ r.id }}-view">
+      <span class="review__quote">{% include yrc/icon.html name="quote" %}</span>
+      <h4 id="{{ r.id }}-view" class="review__label review__label--light">My critical perspective</h4>
+      {% include yrc/field.html value=r.perspective placeholder="[Critical analysis: original commentary on this resource]" label="Original analysis" words="100–150" lines=3 variant="dark" %}
+    </section>
+  </div>
+
+  <footer class="review__foot">
+    <a class="link-arrow" href="#overview">{% include yrc/icon.html name="arrow-up" %}Back to resource overview</a>
+  </footer>
+</article>

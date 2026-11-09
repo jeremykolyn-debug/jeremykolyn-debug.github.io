@@ -1,0 +1,36 @@
+---
+layout: yrc-page
+title: "Critical Reflection"
+permalink: /critical-reflection/
+nav: about
+parent:
+  title: "About"
+  url: /about/
+hero_style: plain
+eyebrow: "Assignment component"
+lede: "A reflection accompanying the completed project. This page is written for instructors and is separate from the youth-facing resource."
+---
+{%- assign rf = site.data.reflection -%}
+<section class="section section--tight">
+  <div class="container container--reading">
+    <aside class="callout callout--info reflection-notice" aria-labelledby="reflection-notice">
+      <span class="callout__icon">{% include yrc/icon.html name="info" %}</span>
+      <div>
+        <p class="callout__label" id="reflection-notice">About this page</p>
+        <p>{{ rf.notice }}</p>
+      </div>
+    </aside>
+
+    {%- for s in rf.sections %}
+    <section id="{{ s.id }}" class="reflection-section" aria-labelledby="{{ s.id }}-title">
+      <span class="reflection-section__num" aria-hidden="true">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</span>
+      <div>
+        <h2 id="{{ s.id }}-title">{{ s.title }}</h2>
+        {% include yrc/field.html value=s.body placeholder=s.placeholder label="Reflection" words="100–200" lines=5 %}
+      </div>
+    </section>
+    {%- endfor %}
+
+    <p class="review__aside"><a class="link-arrow" href="{{ '/' | relative_url }}">{% include yrc/icon.html name="arrow-right" %}Return to the Youth Resource Centre</a></p>
+  </div>
+</section>

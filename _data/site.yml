@@ -1,0 +1,34 @@
+# Site-wide settings for the Youth Resource Centre theme.
+# The brand name and tagline are `title` and `subtitle` in _config.yml.
+# Any field left as "" shows a marked placeholder on the site.
+
+nav:
+  # Top navigation bar (keep this short)
+  primary:
+    - key: home
+      title: "Home"
+      url: /
+    - key: explore
+      title: "Explore"
+      url: /explore/
+    - key: resources
+      title: "Resources"
+      url: /resources/
+    - key: think
+      title: "Think Critically"
+      url: /think-critically/
+    - key: about
+      title: "About"
+      url: /about/
+  # Secondary pages, linked from the footer and from related pages
+  secondary:
+    - title: "Evaluating Sources"
+      url: /evaluating-sources/
+    - title: "Critical Reflection"
+      url: /critical-reflection/
+
+project:
+  author: ""        # your name as you want it credited
+  course: ""        # e.g. course code and title
+  licence: ""       # e.g. "Content licensed under CC BY 4.0"
+  designation: "A student-created educational resource developed for a university course assignment."

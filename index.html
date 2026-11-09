@@ -1,32 +1,138 @@
 ---
-layout: splash
-title: "Academic Resource Hub"
-header:
-  overlay_color: "#2f4858"
-  actions:
-    - label: "Start with Unit 1"
-      url: "/units/01-foundations/"
-excerpt: "Organized notes, study guides, and curated readings — free and open to everyone."
-intro:
-  - excerpt: "Use the sections below to find what you need. Every page is searchable with the 🔍 icon in the top bar."
-feature_row:
-  - title: "Units"
-    excerpt: "Structured notes for each topic, with learning objectives, key ideas, worked examples, and review questions."
-    url: "/units/"
-    btn_label: "Browse units"
-    btn_class: "btn--primary"
-  - title: "Study Guides"
-    excerpt: "Practical how-tos: using this site, reading academic papers, and citing sources correctly."
-    url: "/guides/"
-    btn_label: "Read the guides"
-    btn_class: "btn--primary"
-  - title: "Resources"
-    excerpt: "Curated textbooks, articles, websites, and tools, with full citations."
-    url: "/resources/"
-    btn_label: "See resources"
-    btn_class: "btn--primary"
+layout: yrc-base
+nav: home
 ---
+{%- assign home = site.data.home -%}
+{%- assign chapters = site.data.explore.chapters -%}
+{%- assign why_body = home.why.body | strip -%}
 
-{% include feature_row id="intro" type="center" %}
+<!-- Hero -->
+<section class="hero on-dark" aria-labelledby="hero-title">
+  {% include yrc/hero-bg.html %}
+  <div class="container hero__grid">
+    <div class="hero__content">
+      <p class="hero__eyebrow">{{ site.title }} · {{ site.subtitle }}</p>
+      <h1 id="hero-title">{{ home.hero.headline }}</h1>
+      <div class="hero__intro">
+        {% include yrc/field.html value=home.hero.intro placeholder="[Introduction to the selected youth-related topic will appear here.]" label="Topic introduction" lines=0 variant="dark" %}
+      </div>
+      <div class="hero__actions">
+        <a class="btn btn--light" href="{{ '/explore/' | relative_url }}">Explore the Topic {% include yrc/icon.html name="arrow-right" %}</a>
+        <a class="btn btn--ghost-light" href="{{ '/resources/' | relative_url }}">Browse Resources</a>
+      </div>
+    </div>
+    {% include yrc/hero-visual.html %}
+  </div>
+</section>
 
-{% include feature_row %}
+<!-- What's inside: counts come from the data files -->
+<div class="container overview-strip">
+  <ul class="overview-strip__list">
+    <li><a href="{{ '/explore/' | relative_url }}"><span class="overview-strip__num">{{ chapters.size }}</span><span class="overview-strip__label"><strong>Topic sections</strong>Original commentary</span></a></li>
+    <li><a href="{{ '/resources/' | relative_url }}"><span class="overview-strip__num">{{ site.data.resources.size }}</span><span class="overview-strip__label"><strong>Resources</strong>Each critically reviewed</span></a></li>
+    <li><a href="{{ '/think-critically/' | relative_url }}"><span class="overview-strip__num">{{ site.data.activities.activities.size }}</span><span class="overview-strip__label"><strong>Activities</strong>Reflect and apply</span></a></li>
+    <li><a href="{{ '/evaluating-sources/' | relative_url }}"><span class="overview-strip__num">{{ site.data.evaluating.criteria.size }}</span><span class="overview-strip__label"><strong>Credibility checks</strong>Judge any source</span></a></li>
+  </ul>
+</div>
+
+<!-- Why this matters -->
+<section class="section" aria-labelledby="why-title">
+  <div class="container why">
+    <div class="why__aside reveal">
+      <p class="eyebrow">Introduction</p>
+      <h2 id="why-title" class="section-title">{{ home.why.heading }}</h2>
+      {%- if why_body == "" %}
+      <p class="why__note">This introduction will explain:</p>
+      <ul class="tick-list">
+        <li>The subject this resource centre explores</li>
+        <li>The website's orientation: self-help, critical reflection, or both</li>
+        <li>Its purpose</li>
+        <li>Why it is useful to young people</li>
+      </ul>
+      {%- endif %}
+    </div>
+    <div class="why__body reveal">
+      {% include yrc/field.html value=home.why.body placeholder="[Explain the selected issue, its importance to young people, and the purpose of this resource centre.]" label="Introductory commentary" words="150–200" lines=7 %}
+    </div>
+  </div>
+</section>
+
+<!-- Key themes (one per Explore chapter) -->
+<section class="section section--white" aria-labelledby="themes-title">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <p class="eyebrow">Key themes</p>
+      <h2 id="themes-title" class="section-title">Explore the Key Themes</h2>
+      <p class="section-lede">Each theme opens a section of the topic guide.</p>
+    </div>
+    <div class="grid grid--3">
+      {%- for ch in chapters %}
+      <article class="card card--link reveal">
+        <span class="card__icon">{% include yrc/icon.html name=ch.icon %}</span>
+        <p class="card__kicker">Theme {{ ch.number }}</p>
+        <h3 class="card__title"><a class="card__link" href="{{ '/explore/' | relative_url }}#{{ ch.id }}"><span class="sr-only">Theme {{ ch.number }}: </span>{% include yrc/text.html value=ch.title placeholder="[Theme heading]" %}</a></h3>
+        <p class="card__text">{% include yrc/text.html value=ch.summary placeholder="[Short description of this theme]" %}</p>
+        <span class="card__more" aria-hidden="true">Read section {{ ch.number }} {% include yrc/icon.html name="arrow-right" %}</span>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- How to use this website -->
+<section class="section" aria-labelledby="how-title">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <p class="eyebrow">Getting started</p>
+      <h2 id="how-title" class="section-title">How to Use This Website</h2>
+      <p class="section-lede">Three steps, in any order you like.</p>
+    </div>
+    <ol class="steps">
+      {%- for s in home.steps %}
+      <li class="step reveal">
+        <div class="step__top">
+          <span class="step__num">{{ s.number }}</span>
+          <span class="step__icon">{% include yrc/icon.html name=s.icon %}</span>
+        </div>
+        <h3 class="step__title">{{ s.title }}</h3>
+        <p class="step__text">{{ s.text }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<!-- Featured resources -->
+<section class="section section--white" aria-labelledby="featured-title">
+  <div class="container">
+    <div class="section-head-row">
+      <div>
+        <p class="eyebrow">Resource Library</p>
+        <h2 id="featured-title" class="section-title">Featured Resources</h2>
+      </div>
+      <a class="link-arrow" href="{{ '/evaluating-sources/' | relative_url }}">How resources are evaluated {% include yrc/icon.html name="arrow-right" %}</a>
+    </div>
+    <div class="grid grid--3">
+      {%- for rid in home.featured_resources %}
+      {%- assign fr = site.data.resources | where: "id", rid | first %}
+      {%- if fr %}{% include yrc/resource-card.html resource=fr %}{% endif %}
+      {%- endfor %}
+    </div>
+    <div class="section-actions">
+      <a class="btn btn--primary" href="{{ '/resources/' | relative_url }}">{{ home.featured_button }} {% include yrc/icon.html name="arrow-right" %}</a>
+    </div>
+  </div>
+</section>
+
+<!-- Credibility call to action -->
+<section class="section section--tight">
+  <div class="container">
+    <div class="cta-band on-dark reveal">
+      <div class="cta-band__text">
+        <h2>Not sure whether to trust a source?</h2>
+        <p>Use the six-point checklist to think through who made it, why, and what supports it.</p>
+      </div>
+      <a class="btn btn--light" href="{{ '/evaluating-sources/' | relative_url }}">Evaluate a source {% include yrc/icon.html name="arrow-right" %}</a>
+    </div>
+  </div>
+</section>

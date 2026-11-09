@@ -1,0 +1,22 @@
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      {% include yrc/logo.html %}
+      <span class="brand__text">
+        <span class="brand__name">{{ site.title }}</span>
+        <span class="brand__tag">{{ site.subtitle }}</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
+      {% include yrc/icon.html name="menu" class="nav-toggle__open" %}{% include yrc/icon.html name="close" class="nav-toggle__close" %}
+      <span class="sr-only" data-nav-label>Open menu</span>
+    </button>
+    <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+      <ul>
+        {%- for item in site.data.site.nav.primary %}
+        <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% elsif page.nav == item.key %} class="is-section"{% endif %}>{{ item.title }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

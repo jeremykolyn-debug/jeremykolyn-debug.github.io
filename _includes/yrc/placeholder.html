@@ -1,0 +1,12 @@
+{%- comment -%}
+  Marked placeholder for content that has not been written yet.
+  The grey bars hint at the expected length; they are hidden from assistive tech.
+{%- endcomment -%}
+{%- assign _pl = include.lines | default: 3 -%}
+<div class="placeholder{% if include.variant %} placeholder--{{ include.variant }}{% endif %}" role="note">
+  <p class="placeholder__label">{% include yrc/icon.html name="pencil" %}<span>{{ include.label | default: "Content placeholder" }}</span>{% if include.words %}<span class="placeholder__words">· approx. {{ include.words }} words</span>{% endif %}</p>
+  <p class="placeholder__text">{{ include.text }}</p>
+  {%- if _pl > 0 %}
+  <div class="placeholder__lines" aria-hidden="true">{% for i in (1.._pl) %}<span></span>{% endfor %}</div>
+  {%- endif %}
+</div>

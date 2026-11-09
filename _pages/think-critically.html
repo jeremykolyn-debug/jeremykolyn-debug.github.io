@@ -1,0 +1,44 @@
+---
+layout: yrc-page
+title: "Think Critically"
+permalink: /think-critically/
+nav: think
+eyebrow: "Activities"
+lede: "Short activities that ask you to apply what you've read, weigh up different responses, and reach your own conclusions."
+---
+{%- assign act = site.data.activities -%}
+<section class="section section--tight">
+  <div class="container container--mid">
+    <div class="intro-split">
+      <div>
+        <p class="eyebrow">Before you start</p>
+        <h2 class="section-title">About these activities</h2>
+      </div>
+      <div>
+        {% include yrc/field.html value=act.intro placeholder="[Introduction to the activities: what they ask young people to do and why]" label="Introduction" words="80–120" lines=3 %}
+        <ol class="how-steps" aria-label="How each activity works">
+          <li>Read the scenario</li>
+          <li>Choose a response</li>
+          <li>Read the feedback</li>
+          <li>Follow up with a resource</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--white" aria-label="Activities">
+  <div class="container container--mid">
+    <div class="activities">
+      {%- for a in act.activities %}
+      {% include yrc/activity.html activity=a %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container container--mid">
+    {% include yrc/next-steps.html items="evaluate,resources" %}
+  </div>
+</section>
