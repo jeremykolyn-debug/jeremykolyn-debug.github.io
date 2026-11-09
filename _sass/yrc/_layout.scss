@@ -56,7 +56,8 @@
 @media (min-width: 820px) {
   .grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
-/* (no CSS min()/max() here: GitHub Pages compiles with libsass, which rejects them) */
+/* GitHub Pages compiles with Ruby Sass 3.x: no CSS min()/max(), and wrap
+   arithmetic inside clamp() in calc() so Sass doesn't try to evaluate it. */
 @media (min-width: 480px) {
   .grid--resources { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
 }

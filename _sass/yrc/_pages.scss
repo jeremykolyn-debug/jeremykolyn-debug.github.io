@@ -252,7 +252,7 @@
   .review__head { grid-template-columns: auto minmax(0, 1fr) auto; align-items: start; }
 }
 .review__num {
-  font-size: clamp(2.5rem, 2rem + 2vw, 3.5rem);
+  font-size: clamp(2.5rem, calc(2rem + 2vw), 3.5rem);
   font-weight: 800;
   line-height: 0.9;
   letter-spacing: -0.04em;
@@ -269,7 +269,7 @@
   color: var(--text-muted);
 }
 .review__badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; }
-.review__title { margin: 0 0 1.25rem; font-size: clamp(1.375rem, 1.2rem + 0.6vw, 1.75rem); }
+.review__title { margin: 0 0 1.25rem; font-size: clamp(1.375rem, calc(1.2rem + 0.6vw), 1.75rem); }
 .review__meta {
   display: grid;
   gap: 0.85rem 1.5rem;

@@ -342,7 +342,7 @@ h1 .ph-inline, h2 .ph-inline, h3 .ph-inline, .toc .ph-inline {
   pointer-events: none;
 }
 .cta-band__text { position: relative; max-width: 560px; }
-.cta-band h2 { margin: 0 0 0.4rem; color: #fff; font-size: clamp(1.375rem, 1.2rem + 0.7vw, 1.75rem); }
+.cta-band h2 { margin: 0 0 0.4rem; color: #fff; font-size: clamp(1.375rem, calc(1.2rem + 0.7vw), 1.75rem); }
 .cta-band p { margin: 0; }
 .cta-band .btn { position: relative; z-index: 1; }
 
