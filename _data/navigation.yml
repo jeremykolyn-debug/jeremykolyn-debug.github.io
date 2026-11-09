@@ -1,12 +1,38 @@
-# main links
+# main links (top navigation bar)
 main:
-  - title: "Quick-Start Guide"
-    url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
+  - title: "Units"
+    url: /units/
+  - title: "Study Guides"
+    url: /guides/
+  - title: "Resources"
+    url: /resources/
+  - title: "Glossary"
+    url: /glossary/
+  - title: "Updates"
+    url: /updates/
+  - title: "About"
+    url: /about/
+
+# sidebar shown on every unit page — add a line here for each new unit
+units:
+  - title: "Units"
+    url: /units/
+    children:
+      - title: "Unit 1: Foundations"
+        url: /units/01-foundations/
+      - title: "Unit 2: Core Concepts"
+        url: /units/02-core-concepts/
+      - title: "Unit 3: Applications"
+        url: /units/03-applications/
+
+# sidebar shown on every study guide page
+guides:
+  - title: "Study Guides"
+    url: /guides/
+    children:
+      - title: "How to Use This Resource"
+        url: /guides/how-to-use/
+      - title: "Reading Academic Papers"
+        url: /guides/reading-papers/
+      - title: "Citing Sources"
+        url: /guides/citing-sources/

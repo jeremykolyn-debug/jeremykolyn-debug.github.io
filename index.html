@@ -1,4 +1,32 @@
 ---
-layout: home
-author_profile: true
+layout: splash
+title: "Academic Resource Hub"
+header:
+  overlay_color: "#2f4858"
+  actions:
+    - label: "Start with Unit 1"
+      url: "/units/01-foundations/"
+excerpt: "Organized notes, study guides, and curated readings — free and open to everyone."
+intro:
+  - excerpt: "Use the sections below to find what you need. Every page is searchable with the 🔍 icon in the top bar."
+feature_row:
+  - title: "Units"
+    excerpt: "Structured notes for each topic, with learning objectives, key ideas, worked examples, and review questions."
+    url: "/units/"
+    btn_label: "Browse units"
+    btn_class: "btn--primary"
+  - title: "Study Guides"
+    excerpt: "Practical how-tos: using this site, reading academic papers, and citing sources correctly."
+    url: "/guides/"
+    btn_label: "Read the guides"
+    btn_class: "btn--primary"
+  - title: "Resources"
+    excerpt: "Curated textbooks, articles, websites, and tools, with full citations."
+    url: "/resources/"
+    btn_label: "See resources"
+    btn_class: "btn--primary"
 ---
+
+{% include feature_row id="intro" type="center" %}
+
+{% include feature_row %}
