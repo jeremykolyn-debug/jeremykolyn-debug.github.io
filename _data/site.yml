@@ -1,4 +1,4 @@
-# Site-wide settings for the Youth Resource Centre theme.
+# Site-wide settings for the Teaching Difficult Histories theme.
 # The brand name and tagline are `title` and `subtitle` in _config.yml.
 # Any field left as "" shows a marked placeholder on the site.
 
@@ -15,14 +15,14 @@ nav:
       title: "Resources"
       url: /resources/
     - key: think
-      title: "Think Critically"
+      title: "Questions & Reflection"
       url: /think-critically/
     - key: about
       title: "About"
       url: /about/
   # Secondary pages, linked from the footer and from related pages
   secondary:
-    - title: "Evaluating Sources"
+    - title: "Evaluating Historical Resources"
       url: /evaluating-sources/
     - title: "Critical Reflection"
       url: /critical-reflection/

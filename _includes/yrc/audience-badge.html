@@ -1,0 +1,6 @@
+{%- comment -%} Planned audience label for a resource slot (`for`: educators | students | both). {%- endcomment -%}
+{%- case include.resource.for -%}
+{%- when "educators" -%}<span class="badge badge--soft">{% include yrc/icon.html name="users" %}For educators</span>
+{%- when "students" -%}<span class="badge badge--soft">{% include yrc/icon.html name="book" %}For students</span>
+{%- when "both" -%}<span class="badge badge--soft">{% include yrc/icon.html name="users" %}For educators &amp; students</span>
+{%- endcase -%}

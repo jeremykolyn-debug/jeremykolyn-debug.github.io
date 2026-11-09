@@ -11,14 +11,14 @@ nav: home
   {% include yrc/hero-bg.html %}
   <div class="container hero__grid">
     <div class="hero__content">
-      <p class="hero__eyebrow">{{ site.title }} · {{ site.subtitle }}</p>
+      <p class="hero__eyebrow">{{ site.subtitle }}</p>
       <h1 id="hero-title">{{ home.hero.headline }}</h1>
       <div class="hero__intro">
         {% include yrc/field.html value=home.hero.intro placeholder="[Introduction to the selected youth-related topic will appear here.]" label="Topic introduction" lines=0 variant="dark" %}
       </div>
       <div class="hero__actions">
-        <a class="btn btn--light" href="{{ '/explore/' | relative_url }}">Explore the Topic {% include yrc/icon.html name="arrow-right" %}</a>
-        <a class="btn btn--ghost-light" href="{{ '/resources/' | relative_url }}">Browse Resources</a>
+        <a class="btn btn--light" href="#for-educators">For Educators {% include yrc/icon.html name="arrow-down" %}</a>
+        <a class="btn btn--ghost-light" href="#for-students">For Students {% include yrc/icon.html name="arrow-down" %}</a>
       </div>
     </div>
     {% include yrc/hero-visual.html %}
@@ -29,7 +29,7 @@ nav: home
 <div class="container overview-strip">
   <ul class="overview-strip__list">
     <li><a href="{{ '/explore/' | relative_url }}"><span class="overview-strip__num">{{ chapters.size }}</span><span class="overview-strip__label"><strong>Topic sections</strong>Original commentary</span></a></li>
-    <li><a href="{{ '/resources/' | relative_url }}"><span class="overview-strip__num">{{ site.data.resources.size }}</span><span class="overview-strip__label"><strong>Resources</strong>Each critically reviewed</span></a></li>
+    <li><a href="{{ '/resources/' | relative_url }}"><span class="overview-strip__num">{{ site.data.resources.size }}</span><span class="overview-strip__label"><strong>Resources</strong>Planned critical reviews</span></a></li>
     <li><a href="{{ '/think-critically/' | relative_url }}"><span class="overview-strip__num">{{ site.data.activities.activities.size }}</span><span class="overview-strip__label"><strong>Activities</strong>Reflect and apply</span></a></li>
     <li><a href="{{ '/evaluating-sources/' | relative_url }}"><span class="overview-strip__num">{{ site.data.evaluating.criteria.size }}</span><span class="overview-strip__label"><strong>Credibility checks</strong>Judge any source</span></a></li>
   </ul>
@@ -47,12 +47,36 @@ nav: home
         <li>The subject this resource centre explores</li>
         <li>The website's orientation: self-help, critical reflection, or both</li>
         <li>Its purpose</li>
-        <li>Why it is useful to young people</li>
+        <li>Why it is useful to educators and students</li>
       </ul>
       {%- endif %}
     </div>
     <div class="why__body reveal">
-      {% include yrc/field.html value=home.why.body placeholder="[Explain the selected issue, its importance to young people, and the purpose of this resource centre.]" label="Introductory commentary" words="150–200" lines=7 %}
+      {%- assign why_lead = home.why.lead | strip %}
+      {%- if why_lead != "" %}<div class="prose why__lead">{{ why_lead | markdownify }}</div>{% endif %}
+      {% include yrc/field.html value=home.why.body placeholder="[Expand on the subject, its importance to educators and students, and the purpose of this resource centre.]" label="Introductory commentary" words="150–200" lines=5 %}
+    </div>
+  </div>
+</section>
+
+<!-- Intended audiences -->
+<section class="section section--tight" aria-labelledby="audiences-title">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <p class="eyebrow">Who it's for</p>
+      <h2 id="audiences-title" class="section-title">Two Ways In</h2>
+      <p class="section-lede">Choose the entry point that fits you.</p>
+    </div>
+    <div class="grid grid--2">
+      {%- for au in home.audiences %}
+      <article class="card audience-card reveal" id="{{ au.id }}" aria-labelledby="{{ au.id }}-title">
+        <span class="card__icon">{% include yrc/icon.html name=au.icon %}</span>
+        <p class="card__kicker">Audience</p>
+        <h3 class="card__title" id="{{ au.id }}-title">{{ au.label }}</h3>
+        <p class="card__text">{{ au.text }}</p>
+        <div class="card__footer"><a class="btn btn--primary" href="{{ au.url | relative_url }}">{{ au.button }} {% include yrc/icon.html name="arrow-right" %}</a></div>
+      </article>
+      {%- endfor %}
     </div>
   </div>
 </section>

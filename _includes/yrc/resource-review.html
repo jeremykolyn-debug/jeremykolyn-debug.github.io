@@ -3,9 +3,10 @@
   <header class="review__head">
     <div class="review__num" aria-hidden="true"><span>Resource</span>{{ r.number }}</div>
     <div class="review__heading">
-      <div class="review__badges">{% include yrc/review-status.html resource=r %}</div>
-      <h3 id="{{ r.id }}-title" class="review__title"><span class="sr-only">Resource {{ r.number }}: </span>{% include yrc/text.html value=r.title placeholder="[Resource title]" %}</h3>
+      <div class="review__badges">{% include yrc/review-status.html resource=r %}{% include yrc/audience-badge.html resource=r %}</div>
+      <h3 id="{{ r.id }}-title" class="review__title"><span class="sr-only">Resource {{ r.number }}: </span>{% include yrc/text.html value=r.focus placeholder="[Resource focus]" %}</h3>
       <dl class="review__meta">
+        <div><dt>Selected resource</dt><dd>{% include yrc/text.html value=r.title placeholder="[Resource title]" %}</dd></div>
         <div><dt>Publisher or author</dt><dd>{% include yrc/text.html value=r.publisher placeholder="[Resource publisher]" %}</dd></div>
         <div><dt>Type of resource</dt><dd>{% include yrc/text.html value=r.type placeholder="[Article, video, interactive tool, organization…]" %}</dd></div>
         <div><dt>Intended audience</dt><dd>{% include yrc/text.html value=r.audience placeholder="[Intended audience]" %}</dd></div>
@@ -22,7 +23,7 @@
       </section>
       <section class="review__block" aria-labelledby="{{ r.id }}-why">
         <h4 id="{{ r.id }}-why" class="review__label"><span class="review__chip">{% include yrc/icon.html name="lightbulb" %}</span>Why might it be useful?</h4>
-        {% include yrc/field.html value=r.usefulness placeholder="[Why this resource might be useful to young people]" label="Educational value" words="60–100" lines=3 variant="compact" %}
+        {% include yrc/field.html value=r.usefulness placeholder="[Why this resource might be useful to educators and students]" label="Educational value" words="60–100" lines=3 variant="compact" %}
       </section>
     </div>
 

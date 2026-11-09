@@ -1,5 +1,8 @@
 # About the Project page. Each section shows a placeholder until `body` is filled.
 
+# Brief project description shown at the top of the page
+intro: "Teaching Difficult Histories is an educational resource centre designed for educators and students. Focusing primarily on the Holocaust, the project aims to bring together carefully evaluated resources that support the thoughtful introduction, discussion, and understanding of difficult historical subjects in classroom settings."
+
 sections:
   - id: purpose
     title: "Purpose of the Website"

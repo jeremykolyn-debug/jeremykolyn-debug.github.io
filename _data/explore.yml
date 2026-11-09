@@ -1,4 +1,4 @@
-# Explore the Topic page — your original commentary.
+# Exploring Difficult Histories page (/explore/) — your original commentary.
 # Each chapter also powers one "Theme" card on the home page.
 # Leave a field as "" to show its placeholder. Use `|` for multiple paragraphs.
 
@@ -8,8 +8,8 @@ chapters:
   - id: section-01          # anchor: /explore/#section-01 (keep unique)
     number: "01"
     icon: compass           # see _includes/yrc/icon.html for names
-    title: ""               # section subheading
-    summary: ""             # one sentence, used on the home page theme card
+    title: "Teaching Sensitive Histories"   # section subheading
+    summary: "Considering how difficult historical subjects can be introduced and discussed in educational settings."   # used on the home page theme card
     commentary: ""          # ~150–250 words of original discussion
     image: ""               # optional, e.g. /assets/images/section-01.jpg
     image_alt: ""
@@ -21,9 +21,9 @@ chapters:
 
   - id: section-02
     number: "02"
-    icon: layers
-    title: ""
-    summary: ""
+    icon: book
+    title: "Understanding the Holocaust"
+    summary: "Exploring resources that support historically grounded and age-appropriate learning about the Holocaust."
     commentary: ""
     image: ""
     image_alt: ""
@@ -35,9 +35,9 @@ chapters:
 
   - id: section-03
     number: "03"
-    icon: target
-    title: ""
-    summary: ""
+    icon: message
+    title: "Reflection and Classroom Discussion"
+    summary: "Considering how educators and students can engage in meaningful discussion about challenging historical subjects."
     commentary: ""
     image: ""
     image_alt: ""

@@ -1,11 +1,11 @@
 # Used only by pages that still use the Minimal Mistakes layouts (e.g. /sandbox/).
-# The Youth Resource Centre navigation lives in _data/site.yml.
+# The site navigation lives in _data/site.yml.
 main:
   - title: "Explore"
     url: /explore/
   - title: "Resources"
     url: /resources/
-  - title: "Think Critically"
+  - title: "Questions & Reflection"
     url: /think-critically/
   - title: "About"
     url: /about/

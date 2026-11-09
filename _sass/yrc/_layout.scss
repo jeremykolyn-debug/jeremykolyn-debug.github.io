@@ -53,6 +53,9 @@
 .section-head--center .eyebrow::before { display: none; }
 
 .grid { display: grid; gap: 1.5rem; }
+@media (min-width: 720px) {
+  .grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (min-width: 820px) {
   .grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
@@ -163,8 +166,13 @@
   }
   .js .primary-nav.is-open { display: block; }
 }
-@media (max-width: 380px) {
-  .brand__tag { display: none; }
+/* The subtitle is long: wrap it in the header, and hide it where space is tight */
+.site-header .brand__tag { max-width: 34ch; }
+@media (min-width: 900px) and (max-width: 1119px) {
+  .site-header .brand__tag { display: none; }
+}
+@media (max-width: 519px) {
+  .site-header .brand__tag { display: none; }
 }
 
 /* ---------- Page hero (interior pages) ---------- */

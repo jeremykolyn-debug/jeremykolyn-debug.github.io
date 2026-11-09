@@ -1,10 +1,10 @@
 ---
 layout: yrc-page
-title: "Explore the Topic"
+title: "Exploring Difficult Histories"
 permalink: /explore/
 nav: explore
 eyebrow: "Topic guide"
-lede: "Original commentary on the issue, organized into three sections, with examples, reflection questions, and links to related resources."
+lede: "Commentary on teaching and learning about difficult histories, organized into three sections, with examples, reflection questions, and links to related resources."
 progress: true
 ---
 {%- assign ex = site.data.explore -%}
@@ -68,7 +68,7 @@ progress: true
           {%- if rr %}
           <li class="card card--link related__item">
             {% include yrc/icon.html name="book" %}
-            <a class="card__link" href="{{ '/resources/' | relative_url }}#{{ rr.id }}">Resource {{ rr.number }}: {% include yrc/text.html value=rr.title placeholder="[Resource title]" %}</a>
+            <a class="card__link" href="{{ '/resources/' | relative_url }}#{{ rr.id }}">Resource {{ rr.number }}: {% include yrc/text.html value=rr.focus placeholder="[Resource focus]" %}</a>
           </li>
           {%- endif %}
           {%- endfor %}

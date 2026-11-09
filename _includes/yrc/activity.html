@@ -52,7 +52,7 @@
       {%- endfor %}
     </div>
     {%- if _rr %}
-    <p class="activity__related">{% include yrc/icon.html name="link" %}<span>Related resource: <a href="{{ '/resources/' | relative_url }}#{{ _rr.id }}">Resource {{ _rr.number }}: {% include yrc/text.html value=_rr.title placeholder="[Resource title]" %}</a></span></p>
+    <p class="activity__related">{% include yrc/icon.html name="link" %}<span>Related resource: <a href="{{ '/resources/' | relative_url }}#{{ _rr.id }}">Resource {{ _rr.number }}: {% include yrc/text.html value=_rr.focus placeholder="[Resource focus]" %}</a></span></p>
     {%- endif %}
   </div>
   {%- else %}

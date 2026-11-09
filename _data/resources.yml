@@ -1,17 +1,21 @@
 # Resource Library — one entry per resource. The same entry feeds the home page
 # preview card, the library summary card, and the full critical review.
 #
-# Leave a field as "" and the site shows a marked placeholder; the review badge
-# switches from "Review pending" to "Review complete" once every field is filled.
-# To add a resource, copy a block and give it a new id and number.
+# Each entry starts as a planned slot: `focus` is the working title of the slot,
+# and `title` stays "" until an actual resource is chosen. While `title` is empty
+# the badge reads "Resource pending selection"; once chosen it reads "Review pending"
+# until every review field is filled, then "Review complete".
 #
 #   id           anchor for links, e.g. /resources/#resource-01 (keep unique)
 #   number       display number
-#   title        resource name
+#   focus        working title of this slot (shown as the heading)
+#   for          planned audience: educators, students, or both
+#                (drives the "For educators / For students" lists on the library page)
+#   title        name of the selected resource — leave "" until chosen
 #   publisher    author or publishing organization
 #   type         e.g. Article, Video, Interactive tool, Organization
 #                (type filter buttons appear automatically once 2+ types exist)
-#   audience     who the resource is written for
+#   audience     who the selected resource itself is written for
 #   url          full https:// link — leave "" until confirmed; the button stays disabled
 #   teaser       one sentence for the summary cards
 #   summary      What is this resource?            (Markdown allowed)
@@ -29,6 +33,8 @@
 
 - id: resource-01
   number: "01"
+  focus: "Introducing Difficult Historical Topics"
+  for: educators
   title: ""
   publisher: ""
   type: ""
@@ -44,6 +50,8 @@
 
 - id: resource-02
   number: "02"
+  focus: "Teaching About the Holocaust"
+  for: educators
   title: ""
   publisher: ""
   type: ""
@@ -59,6 +67,8 @@
 
 - id: resource-03
   number: "03"
+  focus: "Student Learning Resources"
+  for: students
   title: ""
   publisher: ""
   type: ""
@@ -74,6 +84,8 @@
 
 - id: resource-04
   number: "04"
+  focus: "Facilitating Classroom Discussion"
+  for: educators
   title: ""
   publisher: ""
   type: ""
@@ -89,6 +101,8 @@
 
 - id: resource-05
   number: "05"
+  focus: "Reflection and Historical Understanding"
+  for: both
   title: ""
   publisher: ""
   type: ""

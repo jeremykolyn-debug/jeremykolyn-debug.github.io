@@ -21,6 +21,8 @@ lede: "Why this resource centre exists, who it is for, how its resources were ch
   </aside>
 
   <div class="article">
+    {%- assign ab_intro = ab.intro | strip %}
+    {%- if ab_intro != "" %}<div class="prose about-intro">{{ ab_intro | markdownify }}</div>{% endif %}
     {%- for s in ab.sections %}
     <section id="{{ s.id }}" class="about-section reveal" aria-labelledby="{{ s.id }}-title">
       <span class="about-section__icon">{% include yrc/icon.html name=s.icon %}</span>

@@ -6,12 +6,29 @@
 #     Second paragraph.
 
 hero:
-  headline: "Understanding the Issues That Matter to Young People"
-  intro: ""         # one or two sentences introducing your topic
+  headline: "How Do We Teach Difficult Histories?"
+  intro: "Exploring how educators and students can approach challenging historical subjects, with a particular focus on teaching and learning about the Holocaust."
 
 why:
   heading: "Why This Matters"
-  body: ""          # ~150–200 words: the issue, why it matters to young people, the site's purpose
+  # Short website introduction shown above the full commentary
+  lead: "Some historical subjects are especially difficult to introduce in the classroom. Events such as the Holocaust raise important questions about how educators present sensitive histories and how students engage with challenging material. This resource centre will explore approaches to teaching and learning about these subjects, with an emphasis on historical understanding, thoughtful discussion, and age-appropriate education."
+  body: ""          # ~150–200 words of fuller introductory commentary
+
+# The two audience cards. `url` points to the matching list in the Resource Library.
+audiences:
+  - id: for-educators
+    label: "For Educators"
+    icon: users
+    text: "Explore resources and teaching considerations for introducing difficult historical topics in thoughtful, historically responsible, and age-appropriate ways."
+    button: "Explore Educator Resources"
+    url: /resources/#educators
+  - id: for-students
+    label: "For Students"
+    icon: book
+    text: "Find accessible learning resources that support historical understanding, critical questions, and reflection on difficult events."
+    button: "Explore Student Resources"
+    url: /resources/#students
 
 # The three theme cards are generated from the chapters in _data/explore.yml.
 

@@ -4,7 +4,7 @@ title: "Resource Library"
 permalink: /resources/
 nav: resources
 eyebrow: "Resource Library"
-lede: "Carefully selected resources to help young people explore, question, and understand important issues."
+lede: "Resources for educators and students on teaching and learning about difficult histories, with a focus on the Holocaust. Each will receive a full critical review."
 progress: true
 ---
 {%- assign resources = site.data.resources -%}
@@ -16,7 +16,7 @@ progress: true
   <div class="container intro-split">
     <div>
       <p class="eyebrow">About this library</p>
-      <h2 class="section-title">How these resources were chosen</h2>
+      <h2 class="section-title">How these resources are chosen</h2>
     </div>
     <div>
       {% include yrc/field.html value=site.data.library.intro placeholder="[Original introduction explaining how the resources were found, selected, and evaluated]" label="Selection process" words="100–150" lines=4 %}
@@ -31,7 +31,7 @@ progress: true
     <div class="section-head-row">
       <div>
         <p class="eyebrow">At a glance</p>
-        <h2 id="overview-title" class="section-title">{{ resources.size }} resources selected for critical review</h2>
+        <h2 id="overview-title" class="section-title">{{ resources.size }} resources planned for critical review</h2>
       </div>
     </div>
     <p class="legend-intro">Every review covers:</p>
@@ -58,6 +58,34 @@ progress: true
     <div class="grid grid--resources">
       {%- for r in resources %}
       {% include yrc/resource-card.html resource=r %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Entry points by audience (from each resource's `for` field) -->
+<section class="section section--tight" aria-labelledby="by-audience-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">By audience</p>
+      <h2 id="by-audience-title" class="section-title">Resources for educators and students</h2>
+    </div>
+    <div class="grid grid--2">
+      {%- assign groups = "educators|For Educators|users,students|For Students|book" | split: "," %}
+      {%- for g in groups %}
+      {%- assign parts = g | split: "|" %}
+      {%- assign g_icon = parts[2] %}
+      <article class="card audience-list" id="{{ parts[0] }}" aria-labelledby="{{ parts[0] }}-title">
+        <span class="card__icon">{% include yrc/icon.html name=g_icon %}</span>
+        <h3 class="card__title" id="{{ parts[0] }}-title">{{ parts[1] }}</h3>
+        <ul class="audience-list__items">
+          {%- for r in resources %}
+          {%- if r.for == parts[0] or r.for == "both" %}
+          <li><a href="#{{ r.id }}"><span class="audience-list__num">Resource {{ r.number }}</span>{% include yrc/text.html value=r.focus placeholder="[Resource focus]" %}</a></li>
+          {%- endif %}
+          {%- endfor %}
+        </ul>
+      </article>
       {%- endfor %}
     </div>
   </div>

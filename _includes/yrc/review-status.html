@@ -6,7 +6,10 @@
   {%- assign _x = _rs[_f] | strip -%}
   {%- if _x == "" -%}{%- assign _done = false -%}{%- endif -%}
 {%- endfor -%}
-{%- if _done -%}
+{%- assign _chosen = _rs.title | strip -%}
+{%- if _chosen == "" -%}
+<span class="badge badge--pending">{% include yrc/icon.html name="clock" %}Resource pending selection</span>
+{%- elsif _done -%}
 <span class="badge badge--done">{% include yrc/icon.html name="check" %}Review complete</span>
 {%- else -%}
 <span class="badge badge--pending">{% include yrc/icon.html name="clock" %}Review pending</span>

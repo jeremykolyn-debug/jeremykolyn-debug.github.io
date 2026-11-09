@@ -17,11 +17,11 @@ minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "n
 # Site Settings
 locale                   : "en-US"
 direction                : # "ltr" (default), "rtl" # set the direction of the page
-title                    : "Youth Resource Centre" # temporary brand name — shown in the header, footer and browser tab
+title                    : "Teaching Difficult Histories" # shown in the header, footer and browser tab
 title_separator          : "-"
-subtitle                 : "Explore. Question. Understand." # temporary tagline
+subtitle                 : "Approaching the Holocaust and Sensitive Historical Topics in the Classroom"
 name                     : "Your Name"
-description              : "A resource centre that helps young people explore, question, and understand an important issue, and judge which online information to trust."
+description              : "An educational resource centre for educators and students on introducing, teaching, and understanding difficult historical topics, with the Holocaust as its primary case study."
 url                      : "https://jeremykolyn-debug.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "jeremykolyn-debug/jeremykolyn-debug.github.io"
